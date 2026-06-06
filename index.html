@@ -1,1 +1,1076 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Студия Вектор — IT-решения для бизнеса</title>
+<meta name="description" content="Студия Вектор — разработка Telegram-ботов, сайтов и ПО под ключ. IT-консультирование, реклама и продвижение. Работаем по всей России онлайн. Москва.">
+<meta name="keywords" content="разработка Telegram бота, IT студия Москва, создание сайтов, автоматизация бизнеса, IT консультирование, разработка ПО, Яндекс реклама">
+<meta name="robots" content="index, follow">
+<link rel="canonical" href="https://vektor.ru/">
+<meta property="og:title" content="Студия Вектор — IT-решения для бизнеса">
+<meta property="og:description" content="Разработка Telegram-ботов, сайтов и ПО. IT-консультирование и продвижение. Москва.">
+<meta property="og:url" content="https://vektor.ru/">
+<meta property="og:type" content="website">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Montserrat:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --black: #0a0a0a;
+    --dark: #111318;
+    --card: #16191f;
+    --accent: #00e5ff;
+    --accent2: #7c3aed;
+    --white: #f0f4f8;
+    --muted: #8a9ab0;
+    --border: rgba(0,229,255,0.12);
+  }
 
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  html { scroll-behavior: smooth; }
+
+  body {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 16px;
+    background: var(--black);
+    color: var(--white);
+    overflow-x: hidden;
+  }
+
+  body::before {
+    content: '';
+    position: fixed;
+    inset: 0;
+    background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)' opacity='0.04'/%3E%3C/svg%3E");
+    pointer-events: none;
+    z-index: 9999;
+    opacity: 0.4;
+  }
+
+  /* NAV */
+  nav {
+    position: fixed;
+    top: 0; left: 0; right: 0;
+    z-index: 100;
+    padding: 20px 40px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background: rgba(10,10,10,0.85);
+    backdrop-filter: blur(20px);
+    border-bottom: 1px solid var(--border);
+  }
+
+  .nav-logo {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 28px;
+    letter-spacing: 3px;
+    color: var(--accent);
+    text-decoration: none;
+  }
+
+  .nav-links {
+    display: flex;
+    gap: 32px;
+    list-style: none;
+  }
+
+  .nav-links a {
+    color: var(--muted);
+    text-decoration: none;
+    font-size: 14px;
+    font-weight: 500;
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
+    transition: color 0.2s;
+  }
+
+  .nav-links a:hover { color: var(--accent); }
+
+  .nav-cta {
+    background: var(--accent);
+    color: var(--black) !important;
+    padding: 10px 24px;
+    border-radius: 4px;
+    font-weight: 700 !important;
+  }
+
+  /* HERO */
+  .hero {
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    position: relative;
+    padding: 120px 40px 80px;
+    overflow: hidden;
+  }
+
+  .hero-bg {
+    position: absolute;
+    inset: 0;
+    background:
+      radial-gradient(ellipse 80% 60% at 60% 40%, rgba(0,229,255,0.08) 0%, transparent 70%),
+      radial-gradient(ellipse 60% 80% at 80% 80%, rgba(124,58,237,0.06) 0%, transparent 70%);
+  }
+
+  .hero-grid {
+    position: absolute;
+    inset: 0;
+    background-image:
+      linear-gradient(rgba(0,229,255,0.04) 1px, transparent 1px),
+      linear-gradient(90deg, rgba(0,229,255,0.04) 1px, transparent 1px);
+    background-size: 60px 60px;
+  }
+
+  .hero-content {
+    position: relative;
+    max-width: 700px;
+    z-index: 2;
+  }
+
+  .hero-tag {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    background: rgba(0,229,255,0.08);
+    border: 1px solid var(--border);
+    border-radius: 100px;
+    padding: 8px 18px;
+    font-size: 14px;
+    font-weight: 600;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    color: var(--accent);
+    margin-bottom: 32px;
+    animation: fadeUp 0.8s ease both;
+  }
+
+  .hero-tag::before {
+    content: '';
+    width: 6px; height: 6px;
+    border-radius: 50%;
+    background: var(--accent);
+    animation: pulse 2s infinite;
+  }
+
+  .hero h1 {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: clamp(60px, 10vw, 110px);
+    line-height: 0.9;
+    letter-spacing: 2px;
+    margin-bottom: 28px;
+    animation: fadeUp 0.8s 0.1s ease both;
+  }
+
+  .hero h1 span { color: var(--accent); }
+
+  .hero p {
+    font-size: 18px;
+    line-height: 1.7;
+    color: var(--muted);
+    max-width: 520px;
+    margin-bottom: 44px;
+    font-weight: 300;
+    animation: fadeUp 0.8s 0.2s ease both;
+  }
+
+  .hero-btns {
+    display: flex;
+    gap: 16px;
+    flex-wrap: wrap;
+    animation: fadeUp 0.8s 0.3s ease both;
+  }
+
+  .btn-primary {
+    background: var(--accent);
+    color: var(--black);
+    padding: 18px 36px;
+    border-radius: 4px;
+    font-weight: 700;
+    font-size: 15px;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    text-decoration: none;
+    transition: all 0.2s;
+    display: inline-block;
+  }
+
+  .btn-primary:hover {
+    background: #fff;
+    transform: translateY(-2px);
+    box-shadow: 0 12px 40px rgba(0,229,255,0.3);
+  }
+
+  .btn-outline {
+    border: 1px solid var(--border);
+    color: var(--white);
+    padding: 18px 36px;
+    border-radius: 4px;
+    font-weight: 500;
+    font-size: 15px;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    text-decoration: none;
+    transition: all 0.2s;
+    display: inline-block;
+  }
+
+  .btn-outline:hover {
+    border-color: var(--accent);
+    color: var(--accent);
+    transform: translateY(-2px);
+  }
+
+  .hero-logo {
+    position: absolute;
+    right: 80px;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 280px;
+    height: 280px;
+    border-radius: 50%;
+    object-fit: cover;
+    border: 2px solid var(--border);
+    box-shadow: 0 0 80px rgba(0,229,255,0.15);
+    animation: fadeIn 1s 0.4s ease both;
+    display: block;
+  }
+
+  /* STATS */
+  .stats {
+    padding: 60px 40px;
+    border-top: 1px solid var(--border);
+    border-bottom: 1px solid var(--border);
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 40px;
+  }
+
+  .stat { text-align: center; }
+
+  .stat-num {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 60px;
+    color: var(--accent);
+    line-height: 1;
+    margin-bottom: 8px;
+  }
+
+  .stat-label {
+    font-size: 14px;
+    color: var(--muted);
+    letter-spacing: 1px;
+    text-transform: uppercase;
+  }
+
+  /* SECTIONS */
+  .section {
+    padding: 100px 40px;
+    max-width: 1200px;
+    margin: 0 auto;
+  }
+
+  .section-tag {
+    font-size: 13px;
+    font-weight: 700;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    color: var(--accent);
+    margin-bottom: 16px;
+  }
+
+  .section-title {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: clamp(44px, 6vw, 72px);
+    line-height: 1;
+    margin-bottom: 60px;
+    letter-spacing: 1px;
+  }
+
+  .section-title span { color: var(--accent); }
+
+  /* SERVICES */
+  .services-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 2px;
+    background: var(--border);
+  }
+
+  .service-card {
+    background: var(--card);
+    padding: 40px 36px;
+    position: relative;
+    overflow: hidden;
+    transition: all 0.3s;
+  }
+
+  .service-card::before {
+    content: '';
+    position: absolute;
+    top: 0; left: 0; right: 0;
+    height: 2px;
+    background: linear-gradient(90deg, var(--accent), var(--accent2));
+    transform: scaleX(0);
+    transition: transform 0.3s;
+    transform-origin: left;
+  }
+
+  .service-card:hover::before { transform: scaleX(1); }
+  .service-card:hover { background: #1a1e26; }
+
+  .service-icon {
+    font-size: 38px;
+    margin-bottom: 20px;
+    display: block;
+  }
+
+  .service-num {
+    position: absolute;
+    top: 36px; right: 36px;
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 48px;
+    color: rgba(255,255,255,0.04);
+    line-height: 1;
+  }
+
+  .service-card h3 {
+    font-size: 19px;
+    font-weight: 700;
+    margin-bottom: 12px;
+    letter-spacing: 0.5px;
+  }
+
+  .service-card p {
+    font-size: 15px;
+    color: var(--muted);
+    line-height: 1.7;
+  }
+
+  /* ABOUT */
+  .about {
+    padding: 100px 40px;
+    background: var(--dark);
+  }
+
+  .about-inner {
+    max-width: 1200px;
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 80px;
+    align-items: center;
+  }
+
+  .about-img { position: relative; }
+
+  .about-img img {
+    width: 100%;
+    height: 500px;
+    object-fit: cover;
+    border-radius: 4px;
+    filter: grayscale(20%);
+  }
+
+  .about-img::after {
+    content: '';
+    position: absolute;
+    bottom: -20px; right: -20px;
+    width: 200px; height: 200px;
+    border: 2px solid var(--accent);
+    border-radius: 4px;
+    z-index: -1;
+    opacity: 0.3;
+  }
+
+  .about-text .section-tag { margin-bottom: 12px; }
+
+  .about-text h2 {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: clamp(40px, 5vw, 60px);
+    line-height: 1;
+    margin-bottom: 28px;
+    letter-spacing: 1px;
+  }
+
+  .about-text h2 span { color: var(--accent); }
+
+  .about-text p {
+    font-size: 16px;
+    line-height: 1.8;
+    color: var(--muted);
+    margin-bottom: 20px;
+  }
+
+  .about-features {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 16px;
+    margin-top: 36px;
+  }
+
+  .feature {
+    display: flex;
+    align-items: flex-start;
+    gap: 12px;
+    padding: 16px;
+    background: var(--card);
+    border-radius: 4px;
+    border: 1px solid var(--border);
+  }
+
+  .feature-dot {
+    width: 8px; height: 8px;
+    border-radius: 50%;
+    background: var(--accent);
+    margin-top: 5px;
+    flex-shrink: 0;
+  }
+
+  .feature span {
+    font-size: 14px;
+    font-weight: 500;
+    line-height: 1.5;
+  }
+
+  /* CONTACT */
+  .contact {
+    padding: 100px 40px;
+    max-width: 1200px;
+    margin: 0 auto;
+  }
+
+  .contact-inner {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 80px;
+    align-items: start;
+  }
+
+  .contact-info h2 {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: clamp(44px, 6vw, 72px);
+    line-height: 1;
+    margin-bottom: 28px;
+    letter-spacing: 1px;
+  }
+
+  .contact-info h2 span { color: var(--accent); }
+
+  .contact-info p {
+    font-size: 16px;
+    color: var(--muted);
+    line-height: 1.8;
+    margin-bottom: 40px;
+  }
+
+  .contact-items {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+  }
+
+  .contact-item {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    text-decoration: none;
+    color: var(--white);
+    transition: color 0.2s;
+  }
+
+  .contact-item:hover { color: var(--accent); }
+
+  .contact-item-icon {
+    width: 52px; height: 52px;
+    background: var(--card);
+    border: 1px solid var(--border);
+    border-radius: 4px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 22px;
+    flex-shrink: 0;
+  }
+
+  .contact-item-text strong {
+    display: block;
+    font-size: 15px;
+    font-weight: 600;
+  }
+
+  .contact-item-text span {
+    font-size: 14px;
+    color: var(--muted);
+  }
+
+  /* CHAT BOX */
+  .chat-box {
+    background: var(--card);
+    border: 1px solid var(--border);
+    border-radius: 8px;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    height: 420px;
+  }
+
+  .chat-header {
+    background: var(--dark);
+    border-bottom: 1px solid var(--border);
+    padding: 16px 20px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+  }
+
+  .chat-dot {
+    width: 10px; height: 10px;
+    border-radius: 50%;
+    background: var(--accent);
+    animation: pulse 2s infinite;
+  }
+
+  .chat-header-text strong {
+    display: block;
+    font-size: 15px;
+    font-weight: 600;
+  }
+
+  .chat-header-text span {
+    font-size: 13px;
+    color: var(--accent);
+  }
+
+  .chat-messages {
+    flex: 1;
+    padding: 20px;
+    overflow-y: auto;
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+  }
+
+  .chat-msg {
+    max-width: 80%;
+    padding: 12px 16px;
+    border-radius: 12px;
+    font-size: 15px;
+    line-height: 1.5;
+  }
+
+  .chat-msg.bot {
+    background: var(--dark);
+    border: 1px solid var(--border);
+    align-self: flex-start;
+    border-radius: 4px 12px 12px 12px;
+  }
+
+  .chat-msg.user {
+    background: var(--accent);
+    color: var(--black);
+    align-self: flex-end;
+    font-weight: 600;
+    border-radius: 12px 4px 12px 12px;
+  }
+
+  .chat-input-row {
+    border-top: 1px solid var(--border);
+    padding: 12px 16px;
+    display: flex;
+    gap: 10px;
+    align-items: center;
+  }
+
+  .chat-input {
+    flex: 1;
+    background: var(--dark);
+    border: 1px solid var(--border);
+    border-radius: 24px;
+    padding: 12px 18px;
+    color: var(--white);
+    font-family: 'Montserrat', sans-serif;
+    font-size: 15px;
+    outline: none;
+    transition: border-color 0.2s;
+  }
+
+  .chat-input::placeholder { color: var(--muted); }
+  .chat-input:focus { border-color: var(--accent); }
+
+  .chat-send {
+    width: 44px; height: 44px;
+    background: var(--accent);
+    border: none;
+    border-radius: 50%;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 18px;
+    transition: all 0.2s;
+    flex-shrink: 0;
+  }
+
+  .chat-send:hover {
+    background: #fff;
+    transform: scale(1.05);
+  }
+
+  /* FOOTER */
+  footer {
+    background: var(--dark);
+    border-top: 1px solid var(--border);
+    padding: 40px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 20px;
+  }
+
+  .footer-logo {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 24px;
+    letter-spacing: 3px;
+    color: var(--accent);
+  }
+
+  .footer-text {
+    font-size: 14px;
+    color: var(--muted);
+  }
+
+  .footer-links {
+    display: flex;
+    gap: 24px;
+    list-style: none;
+  }
+
+  .footer-links a {
+    font-size: 14px;
+    color: var(--muted);
+    text-decoration: none;
+    transition: color 0.2s;
+  }
+
+  .footer-links a:hover { color: var(--accent); }
+
+  /* ANIMATIONS */
+  @keyframes fadeUp {
+    from { opacity: 0; transform: translateY(30px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+
+  @keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
+  }
+
+  @keyframes pulse {
+    0%, 100% { opacity: 1; }
+    50% { opacity: 0.3; }
+  }
+
+  /* RESPONSIVE */
+  @media (max-width: 900px) {
+    nav { padding: 16px 20px; }
+    .nav-links { display: none; }
+    .hero { padding: 100px 20px 60px; }
+    .hero-logo { display: none; }
+    .hero h1 { font-size: clamp(52px, 14vw, 90px); }
+    .hero p { font-size: 17px; }
+    .stats { grid-template-columns: repeat(2, 1fr); padding: 40px 20px; }
+    .stat-num { font-size: 52px; }
+    .section { padding: 60px 20px; }
+    .section-title { font-size: clamp(40px, 10vw, 60px); }
+    .services-grid { grid-template-columns: 1fr; }
+    .service-card h3 { font-size: 18px; }
+    .service-card p { font-size: 15px; }
+    .about { padding: 60px 20px; }
+    .about-inner { grid-template-columns: 1fr; gap: 40px; }
+    .about-text p { font-size: 15px; }
+    .contact { padding: 60px 20px; }
+    .contact-inner { grid-template-columns: 1fr; gap: 40px; }
+    .contact-info p { font-size: 15px; }
+    .chat-box { height: 380px; }
+    .chat-msg { font-size: 15px; }
+    footer { padding: 24px 20px; flex-direction: column; text-align: center; }
+    .footer-text { font-size: 13px; }
+  }
+
+  /* МОДАЛКА ПОЛИТИКИ */
+  .modal-overlay {
+    display: none;
+    position: fixed;
+    inset: 0;
+    background: rgba(0,0,0,0.8);
+    z-index: 1000;
+    align-items: center;
+    justify-content: center;
+    padding: 20px;
+  }
+
+  .modal-overlay.active { display: flex; }
+
+  .modal {
+    background: var(--dark);
+    border: 1px solid var(--border);
+    border-radius: 8px;
+    max-width: 640px;
+    width: 100%;
+    max-height: 80vh;
+    overflow-y: auto;
+    padding: 40px;
+    position: relative;
+  }
+
+  .modal h2 {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 32px;
+    color: var(--accent);
+    margin-bottom: 24px;
+  }
+
+  .modal h3 {
+    font-size: 16px;
+    font-weight: 700;
+    margin: 20px 0 8px;
+  }
+
+  .modal p, .modal li {
+    font-size: 15px;
+    color: var(--muted);
+    line-height: 1.7;
+    margin-bottom: 8px;
+  }
+
+  .modal-close {
+    position: absolute;
+    top: 16px; right: 16px;
+    background: none;
+    border: none;
+    color: var(--muted);
+    font-size: 24px;
+    cursor: pointer;
+    transition: color 0.2s;
+  }
+
+  .modal-close:hover { color: var(--accent); }
+
+  /* COOKIE */
+  .cookie-bar {
+    position: fixed;
+    bottom: 0; left: 0; right: 0;
+    background: var(--dark);
+    border-top: 1px solid var(--border);
+    padding: 16px 40px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 20px;
+    z-index: 200;
+    flex-wrap: wrap;
+  }
+
+  .cookie-bar p { font-size: 14px; color: var(--muted); }
+
+  .cookie-btns { display: flex; gap: 12px; }
+
+  .cookie-accept {
+    background: var(--accent);
+    color: var(--black);
+    border: none;
+    padding: 10px 24px;
+    border-radius: 4px;
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 700;
+    font-size: 14px;
+    cursor: pointer;
+    transition: background 0.2s;
+  }
+
+  .cookie-decline {
+    background: none;
+    color: var(--muted);
+    border: 1px solid var(--border);
+    padding: 10px 24px;
+    border-radius: 4px;
+    font-family: 'Montserrat', sans-serif;
+    font-size: 14px;
+    cursor: pointer;
+    transition: color 0.2s;
+  }
+
+  .cookie-decline:hover { color: var(--white); }
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav>
+  <a href="#" class="nav-logo">ВЕКТОР</a>
+  <ul class="nav-links">
+    <li><a href="#services">Услуги</a></li>
+    <li><a href="#about">О нас</a></li>
+    <li><a href="#contact" class="nav-cta">Связаться</a></li>
+  </ul>
+</nav>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="hero-bg"></div>
+  <div class="hero-grid"></div>
+  <div class="hero-content">
+    <div class="hero-tag">IT-студия · Москва · Без VPN</div>
+    <h1>СТУДИЯ<br><span>ВЕКТОР</span></h1>
+    <p>Разработка Telegram-ботов, сайтов и ПО под ключ. Продвижение в интернете. Гибкие цены. Гарантия 1 год.</p>
+    <div class="hero-btns">
+      <a href="#contact" class="btn-primary">Получить консультацию</a>
+      <a href="#services" class="btn-outline">Наши услуги</a>
+    </div>
+  </div>
+  <img src="logo.png" alt="Студия Вектор" class="hero-logo" onerror="this.style.display='none'">
+</section>
+
+<!-- STATS -->
+<div class="stats">
+  <div class="stat">
+    <div class="stat-num">50+</div>
+    <div class="stat-label">Проектов</div>
+  </div>
+  <div class="stat">
+    <div class="stat-num">30+</div>
+    <div class="stat-label">Клиентов</div>
+  </div>
+  <div class="stat">
+    <div class="stat-num">3+</div>
+    <div class="stat-label">Года опыта</div>
+  </div>
+  <div class="stat">
+    <div class="stat-num">1 год</div>
+    <div class="stat-label">Гарантия</div>
+  </div>
+</div>
+
+<!-- SERVICES -->
+<section class="section" id="services">
+  <div class="section-tag">Что мы делаем</div>
+  <h2 class="section-title">НАШИ <span>УСЛУГИ</span></h2>
+  <div class="services-grid">
+    <div class="service-card">
+      <span class="service-icon">⚙️</span>
+      <span class="service-num">01</span>
+      <h3>Разработка ПО</h3>
+      <p>Создаём программное обеспечение под задачи вашего бизнеса. От простых скриптов до сложных систем.</p>
+    </div>
+    <div class="service-card">
+      <span class="service-icon">🤖</span>
+      <span class="service-num">02</span>
+      <h3>Telegram-боты</h3>
+      <p>Разрабатываем ботов для продаж, поддержки, автоматизации и управления бизнесом.</p>
+    </div>
+    <div class="service-card">
+      <span class="service-icon">💡</span>
+      <span class="service-num">03</span>
+      <h3>IT-консультирование</h3>
+      <p>Помогаем выбрать правильные технологии и выстроить IT-инфраструктуру для роста компании.</p>
+    </div>
+    <div class="service-card">
+      <span class="service-icon">📣</span>
+      <span class="service-num">04</span>
+      <h3>Реклама и продвижение</h3>
+      <p>Настраиваем рекламу в Яндекс, ВКонтакте и Telegram. Привлекаем целевых клиентов.</p>
+    </div>
+    <div class="service-card">
+      <span class="service-icon">🌐</span>
+      <span class="service-num">05</span>
+      <h3>Разработка сайтов</h3>
+      <p>Создаём быстрые и красивые сайты с SEO-оптимизацией. Работают без VPN на территории РФ.</p>
+    </div>
+    <div class="service-card">
+      <span class="service-icon">🔧</span>
+      <span class="service-num">06</span>
+      <h3>Техническая поддержка</h3>
+      <p>Обеспечиваем бесперебойную работу ваших систем. Оперативно решаем технические проблемы.</p>
+    </div>
+  </div>
+</section>
+
+<!-- ABOUT -->
+<div class="about" id="about">
+  <div class="about-inner">
+    <div class="about-img">
+      <img src="about.jpg" alt="Студия Вектор — IT команда" onerror="this.src='https://images.unsplash.com/photo-1522071820081-009f0129c71c?w=600&q=80'">
+    </div>
+    <div class="about-text">
+      <div class="section-tag">О студии</div>
+      <h2>МЫ РЕШАЕМ <span>IT-ЗАДАЧИ</span> ЛЮБОЙ СЛОЖНОСТИ</h2>
+      <p>Студия Вектор — команда профессионалов с опытом в разработке программного обеспечения, автоматизации бизнес-процессов и цифровом маркетинге.</p>
+      <p>Работаем полностью онлайн, что позволяет нам быть эффективными и предлагать конкурентные цены без лишних затрат.</p>
+      <div class="about-features">
+        <div class="feature">
+          <div class="feature-dot"></div>
+          <span>Работаем полностью онлайн</span>
+        </div>
+        <div class="feature">
+          <div class="feature-dot"></div>
+          <span>Договор и закрывающие документы</span>
+        </div>
+        <div class="feature">
+          <div class="feature-dot"></div>
+          <span>Индивидуальный подход</span>
+        </div>
+        <div class="feature">
+          <div class="feature-dot"></div>
+          <span>Прозрачное ценообразование</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- CONTACT -->
+<section class="contact" id="contact">
+  <div class="contact-inner">
+    <div class="contact-info">
+      <div class="section-tag">Свяжитесь с нами</div>
+      <h2>ГОТОВЫ <span>ПОМОЧЬ</span> ВАШЕМУ БИЗНЕСУ</h2>
+      <p>Напишите в чат или на email — ответим в течение одного рабочего дня. Бесплатная консультация по любому IT-вопросу.</p>
+      <div class="contact-items">
+        <a href="mailto:Vektorizi@yandex.ru" class="contact-item">
+          <div class="contact-item-icon">✉️</div>
+          <div class="contact-item-text">
+            <strong>Vektorizi@yandex.ru</strong>
+            <span>Написать на почту</span>
+          </div>
+        </a>
+        <div class="contact-item">
+          <div class="contact-item-icon">💬</div>
+          <div class="contact-item-text">
+            <strong>Онлайн-чат</strong>
+            <span>Напишите прямо здесь справа →</span>
+          </div>
+        </div>
+        <div class="contact-item">
+          <div class="contact-item-icon">📍</div>
+          <div class="contact-item-text">
+            <strong>Москва, Россия</strong>
+            <span>Работаем онлайн по всей России</span>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- ОНЛАЙН ЧАТ -->
+    <div class="chat-box">
+      <div class="chat-header">
+        <div class="chat-dot"></div>
+        <div class="chat-header-text">
+          <strong>Студия Вектор</strong>
+          <span>Онлайн — ответим быстро</span>
+        </div>
+      </div>
+      <div class="chat-messages" id="chatMessages">
+        <div class="chat-msg bot">👋 Здравствуйте! Чем можем помочь?</div>
+        <div class="chat-msg bot">Опишите вашу задачу — подберём решение и стоимость.</div>
+      </div>
+      <div class="chat-input-row">
+        <input type="text" class="chat-input" id="chatInput" placeholder="Напишите сообщение..." maxlength="500">
+        <button class="chat-send" id="chatSend" onclick="sendMessage()">➤</button>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-logo">ВЕКТОР</div>
+  <div class="footer-text">© 2026 Студия Вектор · Москва · Все права защищены</div>
+  <ul class="footer-links">
+    <li><a href="#services">Услуги</a></li>
+    <li><a href="#about">О нас</a></li>
+    <li><a href="#" onclick="document.getElementById('privacyModal').classList.add('active'); return false;">Политика конфиденциальности</a></li>
+  </ul>
+</footer>
+
+<!-- ПОЛИТИКА -->
+<div class="modal-overlay" id="privacyModal">
+  <div class="modal">
+    <button class="modal-close" onclick="document.getElementById('privacyModal').classList.remove('active')">✕</button>
+    <h2>Политика конфиденциальности</h2>
+    <p>Настоящая Политика определяет порядок обработки и защиты персональных данных пользователей сайта vektor.ru, принадлежащего Студии Вектор.</p>
+    <h3>1. Оператор данных</h3>
+    <p>Студия Вектор, Москва, Россия. Email: Vektorizi@yandex.ru</p>
+    <h3>2. Какие данные мы собираем</h3>
+    <p>Email при обращении через чат или почту; IP-адрес и данные браузера (автоматически); данные cookie; информация о посещённых страницах.</p>
+    <h3>3. Цели обработки</h3>
+    <p>Ответы на обращения; улучшение работы сайта; статистика посещаемости; исполнение договорных обязательств.</p>
+    <h3>4. Cookie</h3>
+    <p>Сайт использует cookie для улучшения работы. Вы можете отключить их в настройках браузера.</p>
+    <h3>5. Передача третьим лицам</h3>
+    <p>Мы не передаём данные третьим лицам, за исключением случаев, предусмотренных законодательством РФ.</p>
+    <h3>6. Права пользователей</h3>
+    <p>Вы имеете право на доступ, исправление или удаление своих данных. Обратитесь: Vektorizi@yandex.ru</p>
+    <h3>7. Соответствие законодательству</h3>
+    <p>Обработка данных осуществляется в соответствии с ФЗ № 152-ФЗ «О персональных данных».</p>
+    <p style="margin-top:20px; font-size:13px;">Дата обновления: июнь 2026 года</p>
+  </div>
+</div>
+
+<!-- COOKIE -->
+<div class="cookie-bar" id="cookieBar">
+  <p>Мы используем cookie для улучшения работы сайта. Продолжая использовать сайт, вы соглашаетесь с нашей <a href="#" onclick="document.getElementById('privacyModal').classList.add('active'); return false;" style="color:var(--accent)">политикой конфиденциальности</a>.</p>
+  <div class="cookie-btns">
+    <button class="cookie-accept" onclick="document.getElementById('cookieBar').style.display='none'">Принять</button>
+    <button class="cookie-decline" onclick="document.getElementById('cookieBar').style.display='none'">Отклонить</button>
+  </div>
+</div>
+
+<script>
+// Чат
+function sendMessage() {
+  const input = document.getElementById('chatInput');
+  const messages = document.getElementById('chatMessages');
+  const text = input.value.trim();
+  if (!text) return;
+
+  const userMsg = document.createElement('div');
+  userMsg.className = 'chat-msg user';
+  userMsg.textContent = text;
+  messages.appendChild(userMsg);
+  input.value = '';
+  messages.scrollTop = messages.scrollHeight;
+
+  setTimeout(() => {
+    const botMsg = document.createElement('div');
+    botMsg.className = 'chat-msg bot';
+    botMsg.textContent = '✓ Получили ваше сообщение! Ответим в течение рабочего дня на почту или уточните email для связи.';
+    messages.appendChild(botMsg);
+    messages.scrollTop = messages.scrollHeight;
+  }, 800);
+}
+
+document.getElementById('chatInput').addEventListener('keydown', function(e) {
+  if (e.key === 'Enter') sendMessage();
+});
+
+// Анимации при скролле
+const observer = new IntersectionObserver((entries) => {
+  entries.forEach(entry => {
+    if (entry.isIntersecting) {
+      entry.target.style.opacity = '1';
+      entry.target.style.transform = 'translateY(0)';
+    }
+  });
+}, { threshold: 0.1 });
+
+document.querySelectorAll('.service-card, .stat, .feature').forEach(el => {
+  el.style.opacity = '0';
+  el.style.transform = 'translateY(20px)';
+  el.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
+  observer.observe(el);
+});
+</script>
+</body>
+</html>
