@@ -55,3 +55,4 @@ export default {
     return new Response(JSON.stringify(data), { headers: cors });
   }
 };
+ 
