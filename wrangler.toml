@@ -1,3 +1,7 @@
 name = "vektor-gemini"
 main = "worker.js"
 compatibility_date = "2024-01-01"
+
+[[kv_namespaces]]
+binding = "STATS"
+id = "cffcdc07dcac44581857857e2d96d2d9"
