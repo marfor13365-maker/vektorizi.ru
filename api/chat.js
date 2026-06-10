@@ -10,19 +10,19 @@ export default async function handler(request) {
     return new Response(null, { headers: cors });
   }
 
-  const url = new URL(request.url);
-
-  if (url.pathname === '/api/track') {
-    return new Response(JSON.stringify({ ok: true }), { headers: cors });
-  }
-
   const body = await request.json();
   const response = await fetch(
-    `https://generativelanguage.googleapis.com/v1beta/models/gemini-2.0-flash:generateContent?key=${process.env.GEMINI_KEY}`,
+    'https://api.groq.com/openai/v1/chat/completions',
     {
       method: 'POST',
-      headers: { 'Content-Type': 'application/json' },
-      body: JSON.stringify(body)
+      headers: {
+        'Content-Type': 'application/json',
+        'Authorization': `Bearer ${process.env.GROQ_KEY}`
+      },
+      body: JSON.stringify({
+        model: 'llama3-8b-8192',
+        messages: body.messages
+      })
     }
   );
   const data = await response.json();
