@@ -10,7 +10,7 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Montserrat:wght@300;400;500;600;700&display=swap" rel="stylesheet">
 <style>
-:root{--black:#0a0a0a;--dark:#111318;--card:#16191f;--accent:#00e5ff;--accent2:#7c3aed;--white:#f0f4f8;--muted:#8a9ab0;--border:rgba(0,229,255,0.12)}
+:root{--black:#0a0a0a;--dark:#111318;--card:#16191f;--accent:#00e5ff;--white:#f0f4f8;--muted:#8a9ab0;--border:rgba(0,229,255,0.12)}
 *{margin:0;padding:0;box-sizing:border-box}
 html{scroll-behavior:smooth}
 body{font-family:'Montserrat',sans-serif;font-size:16px;background:var(--black);color:var(--white);overflow-x:hidden}
@@ -21,7 +21,7 @@ nav{position:fixed;top:0;left:0;right:0;z-index:100;padding:20px 40px;display:fl
 .nav-links a:hover{color:var(--accent)}
 .nav-cta{background:var(--accent);color:var(--black)!important;padding:10px 24px;border-radius:4px;font-weight:700!important}
 .hero{min-height:100vh;display:flex;align-items:center;position:relative;padding:120px 40px 80px;overflow:hidden}
-.hero-bg{position:absolute;inset:0;background:radial-gradient(ellipse 80% 60% at 60% 40%,rgba(0,229,255,0.08) 0%,transparent 70%),radial-gradient(ellipse 60% 80% at 80% 80%,rgba(124,58,237,0.06) 0%,transparent 70%)}
+.hero-bg{position:absolute;inset:0;background:radial-gradient(ellipse 80% 60% at 60% 40%,rgba(0,229,255,0.08) 0%,transparent 70%)}
 .hero-grid{position:absolute;inset:0;background-image:linear-gradient(rgba(0,229,255,0.04) 1px,transparent 1px),linear-gradient(90deg,rgba(0,229,255,0.04) 1px,transparent 1px);background-size:60px 60px}
 .hero-content{position:relative;max-width:700px;z-index:2}
 .hero-tag{display:inline-flex;align-items:center;gap:8px;background:rgba(0,229,255,0.08);border:1px solid var(--border);border-radius:100px;padding:8px 18px;font-size:13px;font-weight:600;letter-spacing:2px;text-transform:uppercase;color:var(--accent);margin-bottom:32px}
@@ -128,8 +128,6 @@ footer{background:var(--black);border-top:1px solid var(--border);padding:40px;d
 .footer-links a{font-size:14px;color:var(--muted);text-decoration:none;transition:color 0.2s}
 .footer-links a:hover{color:var(--accent)}
 @keyframes pulse{0%,100%{opacity:1}50%{opacity:0.3}}
-
-/* MODAL */
 .modal-overlay{display:none;position:fixed;inset:0;background:rgba(0,0,0,0.8);z-index:1000;align-items:center;justify-content:center;padding:20px}
 .modal-overlay.active{display:flex}
 .modal{background:var(--dark);border:1px solid var(--border);border-radius:8px;max-width:640px;width:100%;max-height:80vh;overflow-y:auto;padding:40px;position:relative}
@@ -138,92 +136,76 @@ footer{background:var(--black);border-top:1px solid var(--border);padding:40px;d
 .modal p{font-size:15px;color:var(--muted);line-height:1.7;margin-bottom:8px}
 .modal-close{position:absolute;top:16px;right:16px;background:none;border:none;color:var(--muted);font-size:24px;cursor:pointer}
 .modal-close:hover{color:var(--accent)}
-
-/* COOKIE */
 .cookie-bar{position:fixed;bottom:0;left:0;right:0;background:var(--dark);border-top:1px solid var(--border);padding:16px 40px;display:flex;align-items:center;justify-content:space-between;gap:20px;z-index:200;flex-wrap:wrap}
 .cookie-bar p{font-size:14px;color:var(--muted)}
 .cookie-btns{display:flex;gap:12px}
 .cookie-accept{background:var(--accent);color:var(--black);border:none;padding:10px 24px;border-radius:4px;font-family:'Montserrat',sans-serif;font-weight:700;font-size:14px;cursor:pointer}
 .cookie-decline{background:none;color:var(--muted);border:1px solid var(--border);padding:10px 24px;border-radius:4px;font-family:'Montserrat',sans-serif;font-size:14px;cursor:pointer}
-
-/* CHAT */
 #chat-btn{position:fixed;bottom:24px;right:24px;width:56px;height:56px;background:var(--accent);border-radius:50%;border:none;cursor:pointer;z-index:500;display:flex;align-items:center;justify-content:center;font-size:24px;box-shadow:0 4px 24px rgba(0,229,255,0.4);transition:transform 0.2s}
 #chat-btn:hover{transform:scale(1.1)}
-
 #chat-overlay{display:none;position:fixed;inset:0;z-index:600;background:rgba(0,0,0,0.5)}
 #chat-overlay.open{display:block}
-
-#chat-window{position:fixed;bottom:0;left:0;right:0;height:75vh;max-height:600px;background:var(--dark);border:1px solid var(--border);border-radius:16px 16px 0 0;z-index:601;display:none;flex-direction:column;box-shadow:0 -4px 40px rgba(0,0,0,0.6);overflow:hidden;transition:transform 0.3s ease}
+#chat-window{position:fixed;bottom:0;left:0;right:0;height:75vh;max-height:600px;background:var(--dark);border:1px solid var(--border);border-radius:16px 16px 0 0;z-index:601;display:none;flex-direction:column;box-shadow:0 -4px 40px rgba(0,0,0,0.6);overflow:hidden}
 #chat-window.open{display:flex}
-
 .chat-header{background:var(--card);padding:14px 16px;display:flex;align-items:center;justify-content:space-between;border-bottom:1px solid var(--border);flex-shrink:0}
 .chat-header-left{display:flex;align-items:center;gap:10px}
 .chat-avatar{width:36px;height:36px;background:var(--accent);border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:18px;flex-shrink:0}
 .chat-title{font-weight:700;font-size:15px}
 .chat-subtitle{font-size:11px;color:var(--accent)}
 .chat-header-btns{display:flex;gap:8px;align-items:center}
-.chat-new-btn{background:none;border:1px solid var(--border);color:var(--muted);padding:4px 10px;border-radius:4px;font-size:11px;cursor:pointer;transition:all 0.2s;font-family:'Montserrat',sans-serif}
+.chat-new-btn{background:none;border:1px solid var(--border);color:var(--muted);padding:4px 10px;border-radius:4px;font-size:11px;cursor:pointer;font-family:'Montserrat',sans-serif}
 .chat-new-btn:hover{border-color:var(--accent);color:var(--accent)}
 .chat-close-btn{background:none;border:none;color:var(--muted);font-size:22px;cursor:pointer;line-height:1;padding:0 4px}
-
 .chat-messages{flex:1;overflow-y:auto;padding:14px;display:flex;flex-direction:column;gap:10px;-webkit-overflow-scrolling:touch}
-.chat-messages::-webkit-scrollbar{width:3px}
-.chat-messages::-webkit-scrollbar-thumb{background:var(--border);border-radius:2px}
-
 .msg{max-width:85%;padding:10px 13px;border-radius:12px;font-size:14px;line-height:1.5;word-break:break-word}
 .msg.bot{background:var(--card);color:var(--white);border-bottom-left-radius:4px;align-self:flex-start}
 .msg.user{background:var(--accent);color:var(--black);border-bottom-right-radius:4px;align-self:flex-end;font-weight:500}
 .msg img{max-width:100%;border-radius:8px;margin-top:4px;display:block}
 .msg a{color:var(--accent)}
-
 .chat-typing{display:flex;gap:4px;align-items:center;padding:10px 13px;background:var(--card);border-radius:12px;border-bottom-left-radius:4px;align-self:flex-start}
 .chat-typing span{width:6px;height:6px;background:var(--muted);border-radius:50%;animation:typing 1.2s infinite}
 .chat-typing span:nth-child(2){animation-delay:0.2s}
 .chat-typing span:nth-child(3){animation-delay:0.4s}
 @keyframes typing{0%,60%,100%{transform:translateY(0);opacity:0.4}30%{transform:translateY(-5px);opacity:1}}
-
 .chat-operator-panel{display:none;flex-direction:column;gap:8px;padding:12px 14px;background:var(--card);border-top:1px solid var(--border);flex-shrink:0}
 .chat-operator-panel p{font-size:12px;color:var(--muted);margin-bottom:2px}
 .op-btn{display:flex;align-items:center;gap:8px;padding:8px 12px;border-radius:8px;border:1px solid var(--border);background:none;color:var(--white);font-family:'Montserrat',sans-serif;font-size:13px;cursor:pointer;transition:all 0.2s;text-decoration:none}
 .op-btn:hover{border-color:var(--accent);color:var(--accent)}
-.op-btn-close{background:none;border:none;color:var(--muted);font-size:11px;cursor:pointer;font-family:'Montserrat',sans-serif;align-self:flex-end;margin-top:2px}
-.op-btn-close:hover{color:var(--accent)}
-
+.op-btn-close{background:none;border:none;color:var(--muted);font-size:11px;cursor:pointer;font-family:'Montserrat',sans-serif;align-self:flex-end}
 .chat-footer{padding:10px 12px;border-top:1px solid var(--border);display:flex;flex-direction:column;gap:8px;flex-shrink:0;background:var(--dark)}
 .chat-tools{display:flex;gap:8px}
 .chat-tool-btn{background:none;border:1px solid var(--border);color:var(--muted);padding:5px 10px;border-radius:6px;font-size:12px;cursor:pointer;font-family:'Montserrat',sans-serif;transition:all 0.2s}
 .chat-tool-btn:hover{border-color:var(--accent);color:var(--accent)}
 .chat-input-row{display:flex;gap:8px;align-items:flex-end}
-.chat-input{flex:1;background:var(--card);border:1px solid var(--border);border-radius:8px;padding:10px 12px;color:var(--white);font-family:'Montserrat',sans-serif;font-size:14px;resize:none;max-height:80px;outline:none;-webkit-appearance:none}
+.chat-input{flex:1;background:var(--card);border:1px solid var(--border);border-radius:8px;padding:10px 12px;color:var(--white);font-family:'Montserrat',sans-serif;font-size:14px;resize:none;max-height:80px;outline:none}
 .chat-input:focus{border-color:var(--accent)}
 .chat-input::placeholder{color:var(--muted)}
 .chat-send-btn{background:var(--accent);border:none;color:var(--black);width:40px;height:40px;border-radius:8px;cursor:pointer;font-size:16px;display:flex;align-items:center;justify-content:center;flex-shrink:0}
 .chat-send-btn:hover{background:#fff}
-
 @media(max-width:900px){
-  nav{padding:16px 20px}
-  .nav-links{display:none}
-  .hero{padding:100px 20px 60px}
-  .hero h1{font-size:clamp(52px,14vw,90px)}
-  .stats{grid-template-columns:repeat(2,1fr);padding:40px 20px}
-  .section{padding:60px 20px}
-  .services-grid{grid-template-columns:1fr}
-  .bots{padding:60px 20px}
-  .bots-grid{grid-template-columns:1fr}
-  .pricing{padding:60px 20px}
-  .pricing-grid{grid-template-columns:1fr}
-  .loyalty{padding:60px 20px}
-  .loyalty-grid{grid-template-columns:repeat(2,1fr)}
-  .social{padding:60px 20px}
-  .social-grid{grid-template-columns:1fr}
-  .guarantee{padding:60px 20px}
-  .guarantee-grid{grid-template-columns:1fr}
-  .about{padding:60px 20px}
-  .about-inner{grid-template-columns:1fr;gap:40px}
-  .contact{padding:60px 20px}
-  .how-we-work{padding:24px}
-  footer{padding:24px 20px;flex-direction:column;text-align:center}
-  #chat-window{height:80vh;max-height:none}
+nav{padding:16px 20px}
+.nav-links{display:none}
+.hero{padding:100px 20px 60px}
+.hero h1{font-size:clamp(52px,14vw,90px)}
+.stats{grid-template-columns:repeat(2,1fr);padding:40px 20px}
+.section{padding:60px 20px}
+.services-grid{grid-template-columns:1fr}
+.bots{padding:60px 20px}
+.bots-grid{grid-template-columns:1fr}
+.pricing{padding:60px 20px}
+.pricing-grid{grid-template-columns:1fr}
+.loyalty{padding:60px 20px}
+.loyalty-grid{grid-template-columns:repeat(2,1fr)}
+.social{padding:60px 20px}
+.social-grid{grid-template-columns:1fr}
+.guarantee{padding:60px 20px}
+.guarantee-grid{grid-template-columns:1fr}
+.about{padding:60px 20px}
+.about-inner{grid-template-columns:1fr;gap:40px}
+.contact{padding:60px 20px}
+.how-we-work{padding:24px}
+footer{padding:24px 20px;flex-direction:column;text-align:center}
+#chat-window{height:80vh;max-height:none}
 }
 </style>
 </head>
@@ -327,9 +309,9 @@ footer{background:var(--black);border-top:1px solid var(--border);padding:40px;d
   <div class="section-tag">Продвижение</div>
   <h2 class="section-title">СОЦСЕТИ И <span>МАРКЕТИНГ</span></h2>
   <div class="social-grid">
-    <div class="social-card"><span class="social-icon">✈️</span><h3>Telegram-маркетинг</h3><p>Создание и ведение каналов, закупка рекламы, автоматические воронки продаж.</p></div>
-    <div class="social-card"><span class="social-icon">💬</span><h3>ВКонтакте</h3><p>Оформление и ведение групп, таргетированная реклама, рассылки и чат-боты.</p></div>
-    <div class="social-card"><span class="social-icon">🔍</span><h3>SEO и Яндекс</h3><p>Продвижение в поиске, Яндекс Директ, Яндекс Бизнес, работа с картами.</p></div>
+    <div class="social-card"><span class="social-icon">✈️</span><h3>Telegram-маркетинг</h3><p>Создание и ведение каналов, закупка рекламы, воронки продаж.</p></div>
+    <div class="social-card"><span class="social-icon">💬</span><h3>ВКонтакте</h3><p>Оформление и ведение групп, таргетированная реклама, рассылки.</p></div>
+    <div class="social-card"><span class="social-icon">🔍</span><h3>SEO и Яндекс</h3><p>Продвижение в поиске, Яндекс Директ, Яндекс Бизнес, карты.</p></div>
   </div>
 </div>
 
@@ -353,7 +335,7 @@ footer{background:var(--black);border-top:1px solid var(--border);padding:40px;d
     <div class="about-text">
       <div class="section-tag">О студии</div>
       <h2>МЫ РЕШАЕМ <span>IT-ЗАДАЧИ</span> ЛЮБОЙ СЛОЖНОСТИ</h2>
-      <p>Студия Вектор — команда профессионалов с опытом в разработке ПО, автоматизации бизнес-процессов и цифровом маркетинге.</p>
+      <p>Студия Вектор — команда профессионалов с опытом в разработке ПО, автоматизации и цифровом маркетинге.</p>
       <p>Работаем полностью онлайн, что позволяет предлагать конкурентные цены без лишних затрат.</p>
       <div class="about-features">
         <div class="feature"><div class="feature-dot"></div><span>Работаем полностью онлайн</span></div>
@@ -428,7 +410,6 @@ footer{background:var(--black);border-top:1px solid var(--border);padding:40px;d
   </div>
 </div>
 
-<!-- CHAT -->
 <button id="chat-btn" onclick="openChat()" title="Открыть чат">💬</button>
 <div id="chat-overlay" onclick="closeChat()"></div>
 
@@ -446,16 +427,13 @@ footer{background:var(--black);border-top:1px solid var(--border);padding:40px;d
       <button class="chat-close-btn" onclick="closeChat()">✕</button>
     </div>
   </div>
-
   <div class="chat-messages" id="chatMessages"></div>
-
   <div id="operatorPanel" class="chat-operator-panel">
     <p>Выберите способ связи с оператором:</p>
     <a href="https://vk.com/id878364195" target="_blank" class="op-btn">💬 Написать ВКонтакте</a>
     <a href="mailto:Vektorizi@yandex.ru" class="op-btn">✉️ Написать на Email</a>
     <button class="op-btn-close" onclick="document.getElementById('operatorPanel').style.display='none'">Продолжить в чате ✕</button>
   </div>
-
   <div class="chat-footer">
     <div class="chat-tools">
       <button class="chat-tool-btn" onclick="document.getElementById('fileInput').click()">📎 Файл</button>
@@ -472,11 +450,8 @@ footer{background:var(--black);border-top:1px solid var(--border);padding:40px;d
 
 <script>
 const API_URL = 'https://vector-chat-api.onrender.com';
-const GROQ_URL = 'https://vektorizi-ru.vercel.app/api/chat';
-let chatId = null;
-let messages = [];
-let isTyping = false;
-let chatInited = false;
+const GROQ_URL = 'https://vector-chat-api.onrender.com/chat';
+let chatId = null, messages = [], isTyping = false, chatInited = false;
 
 function openChat() {
   document.getElementById('chat-window').classList.add('open');
@@ -484,25 +459,19 @@ function openChat() {
   document.getElementById('chat-btn').style.display = 'none';
   if (!chatInited) { chatInited = true; initChat(); }
 }
-
 function closeChat() {
   document.getElementById('chat-window').classList.remove('open');
   document.getElementById('chat-overlay').classList.remove('open');
   document.getElementById('chat-btn').style.display = 'flex';
 }
-
-function showOperator() {
-  document.getElementById('operatorPanel').style.display = 'flex';
-}
+function showOperator() { document.getElementById('operatorPanel').style.display = 'flex'; }
 
 async function initChat() {
   try {
     const r = await fetch(API_URL + '/chats', { method: 'POST' });
     const d = await r.json();
     chatId = d.chat_id;
-  } catch(e) {
-    chatId = 'local-' + Date.now();
-  }
+  } catch(e) { chatId = 'local-' + Date.now(); }
   addMsg('bot', 'Здравствуйте! Я AI-ассистент Студии Вектор. Расскажите, чем могу помочь?');
 }
 
@@ -511,16 +480,9 @@ function addMsg(role, content, isFile) {
   const div = document.createElement('div');
   div.className = 'msg ' + role;
   if (isFile) {
-    if (content.startsWith('data:image')) {
-      const img = document.createElement('img');
-      img.src = content;
-      div.appendChild(img);
-    } else {
-      div.innerHTML = '📎 <a href="' + content + '" download>Скачать файл</a>';
-    }
-  } else {
-    div.textContent = content;
-  }
+    if (content.startsWith('data:image')) { const img = document.createElement('img'); img.src = content; div.appendChild(img); }
+    else { div.innerHTML = '📎 <a href="' + content + '" download>Скачать файл</a>'; }
+  } else { div.textContent = content; }
   msgs.appendChild(div);
   msgs.scrollTop = msgs.scrollHeight;
 }
@@ -528,125 +490,74 @@ function addMsg(role, content, isFile) {
 function showTyping() {
   const msgs = document.getElementById('chatMessages');
   const div = document.createElement('div');
-  div.className = 'chat-typing';
-  div.id = 'typingDot';
+  div.className = 'chat-typing'; div.id = 'typingDot';
   div.innerHTML = '<span></span><span></span><span></span>';
-  msgs.appendChild(div);
-  msgs.scrollTop = msgs.scrollHeight;
+  msgs.appendChild(div); msgs.scrollTop = msgs.scrollHeight;
 }
-
-function hideTyping() {
-  const t = document.getElementById('typingDot');
-  if (t) t.remove();
-}
+function hideTyping() { const t = document.getElementById('typingDot'); if (t) t.remove(); }
 
 async function sendMessage() {
   const input = document.getElementById('chatInput');
   const text = input.value.trim();
   if (!text || isTyping) return;
-  input.value = '';
-  input.style.height = 'auto';
-
+  input.value = ''; input.style.height = 'auto';
   addMsg('user', text);
   messages.push({ role: 'user', content: text });
-
   if (chatId && !chatId.startsWith('local')) {
-    fetch(API_URL + '/messages', {
-      method: 'POST',
-      headers: {'Content-Type':'application/json'},
-      body: JSON.stringify({ chat_id: chatId, role: 'user', content: text })
-    }).catch(()=>{});
+    fetch(API_URL + '/messages', { method: 'POST', headers: {'Content-Type':'application/json'}, body: JSON.stringify({ chat_id: chatId, role: 'user', content: text }) }).catch(()=>{});
   }
-
-  isTyping = true;
-  showTyping();
-
+  isTyping = true; showTyping();
   try {
     const r = await fetch(GROQ_URL, {
-      method: 'POST',
-      headers: {'Content-Type':'application/json'},
+      method: 'POST', headers: {'Content-Type':'application/json'},
       body: JSON.stringify({ messages: [
-        { role: 'system', content: 'Ты AI-ассистент IT-студии Вектор (Москва). Помогаешь клиентам с вопросами о разработке сайтов, Telegram-ботов, SEO, рекламе. Отвечай кратко и по делу на русском языке. Если клиент хочет поговорить с оператором — скажи что он может нажать кнопку Оператор.' },
+        { role: 'system', content: 'Ты AI-ассистент IT-студии Вектор (Москва). Помогаешь клиентам с вопросами о разработке сайтов, Telegram-ботов, SEO, рекламе. Отвечай кратко и по делу на русском языке. Если клиент хочет оператора — скажи нажать кнопку Оператор.' },
         ...messages
       ]})
     });
     const d = await r.json();
     const reply = d.choices[0].message.content;
-    hideTyping();
-    addMsg('bot', reply);
+    hideTyping(); addMsg('bot', reply);
     messages.push({ role: 'assistant', content: reply });
-
     if (chatId && !chatId.startsWith('local')) {
-      fetch(API_URL + '/messages', {
-        method: 'POST',
-        headers: {'Content-Type':'application/json'},
-        body: JSON.stringify({ chat_id: chatId, role: 'assistant', content: reply })
-      }).catch(()=>{});
+      fetch(API_URL + '/messages', { method: 'POST', headers: {'Content-Type':'application/json'}, body: JSON.stringify({ chat_id: chatId, role: 'assistant', content: reply }) }).catch(()=>{});
     }
-  } catch(e) {
-    hideTyping();
-    addMsg('bot', 'Произошла ошибка. Попробуйте ещё раз или свяжитесь с нами через кнопку «Оператор».');
-  }
+  } catch(e) { hideTyping(); addMsg('bot', 'Произошла ошибка. Попробуйте ещё раз или нажмите «Оператор».'); }
   isTyping = false;
 }
 
 async function sendFile(input) {
-  const file = input.files[0];
-  if (!file) return;
+  const file = input.files[0]; if (!file) return;
   const reader = new FileReader();
   reader.onload = async function(e) {
-    const dataUrl = e.target.result;
-    addMsg('user', dataUrl, true);
+    addMsg('user', e.target.result, true);
     if (chatId && !chatId.startsWith('local')) {
-      try {
-        const fd = new FormData();
-        fd.append('file', file);
-        await fetch(API_URL + '/upload/' + chatId, { method: 'POST', body: fd });
-      } catch(e) {}
+      try { const fd = new FormData(); fd.append('file', file); await fetch(API_URL + '/upload/' + chatId, { method: 'POST', body: fd }); } catch(e) {}
     }
-    addMsg('bot', 'Файл получен! Если хотите быстрее — нажмите «Оператор» для связи с нами напрямую.');
+    addMsg('bot', 'Файл получен! Нажмите «Оператор» для связи с нами напрямую.');
   };
-  reader.readAsDataURL(file);
-  input.value = '';
+  reader.readAsDataURL(file); input.value = '';
 }
 
 function newChat() {
-  chatId = null;
-  messages = [];
+  chatId = null; messages = [];
   document.getElementById('chatMessages').innerHTML = '';
   document.getElementById('operatorPanel').style.display = 'none';
   initChat();
 }
-
-function handleKey(e) {
-  if (e.key === 'Enter' && !e.shiftKey) {
-    e.preventDefault();
-    sendMessage();
-  }
-}
+function handleKey(e) { if (e.key === 'Enter' && !e.shiftKey) { e.preventDefault(); sendMessage(); } }
 
 document.getElementById('chatInput').addEventListener('input', function() {
   this.style.height = 'auto';
   this.style.height = Math.min(this.scrollHeight, 80) + 'px';
 });
-
-if (localStorage.getItem('cookie')) {
-  document.getElementById('cookieBar').style.display = 'none';
-}
+if (localStorage.getItem('cookie')) document.getElementById('cookieBar').style.display = 'none';
 
 const observer = new IntersectionObserver((entries) => {
-  entries.forEach(entry => {
-    if (entry.isIntersecting) {
-      entry.target.style.opacity = '1';
-      entry.target.style.transform = 'translateY(0)';
-    }
-  });
+  entries.forEach(entry => { if (entry.isIntersecting) { entry.target.style.opacity='1'; entry.target.style.transform='translateY(0)'; } });
 }, { threshold: 0.1 });
-
 document.querySelectorAll('.service-card,.stat,.bot-card,.price-card,.loyalty-card,.social-card,.guarantee-card').forEach(el => {
-  el.style.opacity = '0';
-  el.style.transform = 'translateY(20px)';
-  el.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
+  el.style.opacity='0'; el.style.transform='translateY(20px)'; el.style.transition='opacity 0.6s ease, transform 0.6s ease';
   observer.observe(el);
 });
 </script>
