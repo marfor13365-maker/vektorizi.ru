@@ -449,6 +449,15 @@ nav{padding:20px 40px}
 <script>
 const API_URL='https://vector-chat-api.onrender.com';
 const GROQ_URL='https://vector-chat-api.onrender.com/chat';
+const SYSTEM_PROMPT=`Ты AI-ассистент IT-студии Вектор (Москва). Помогаешь клиентам с вопросами о разработке сайтов, Telegram-ботов, SEO, рекламе. Отвечай кратко и по делу на русском языке.
+
+СТРОГИЕ ПРАВИЛА:
+1. НИКОГДА не давай платёжные реквизиты, номера карт, счетов, кошельков или любые финансовые данные для оплаты — это строго запрещено.
+2. По всем вопросам оплаты, перевода денег, реквизитов — всегда говори: "Для оплаты и реквизитов обратитесь к оператору — нажмите кнопку Оператор ниже."
+3. По вопросам заключения договора, подписания документов — направляй к оператору.
+4. По тарифам можешь называть только общие цены с сайта: от 5000₽ (Старт), от 15000₽ (Бизнес), от 2000₽/мес (Поддержка).
+5. Если клиент хочет сделать заказ — предложи нажать кнопку Оператор для связи с менеджером.`;
+
 let chatId=null,messages=[],isTyping=false,chatInited=false;
 
 function openChat(){
@@ -467,7 +476,7 @@ function showOperator(){document.getElementById('operatorPanel').style.display='
 async function initChat(){
   try{const r=await fetch(API_URL+'/chats',{method:'POST'});const d=await r.json();chatId=d.chat_id;}
   catch(e){chatId='local-'+Date.now();}
-  addMsg('bot','Здравствуйте! Я AI-ассистент Студии Вектор. Расскажите, чем могу помочь?');
+  addMsg('bot','Здравствуйте! Я AI-ассистент Студии Вектор. Помогу ответить на вопросы об услугах. По вопросам оплаты и оформления заказа — нажмите кнопку «Оператор».');
 }
 
 function addMsg(role,content,isFile){
@@ -505,7 +514,7 @@ async function sendMessage(){
   try{
     const r=await fetch(GROQ_URL,{method:'POST',headers:{'Content-Type':'application/json'},
       body:JSON.stringify({messages:[
-        {role:'system',content:'Ты AI-ассистент IT-студии Вектор (Москва). Помогаешь клиентам с вопросами о разработке сайтов, Telegram-ботов, SEO, рекламе. Отвечай кратко и по делу на русском языке. Если клиент хочет оператора — скажи нажать кнопку Оператор.'},
+        {role:'system',content:SYSTEM_PROMPT},
         ...messages
       ]})
     });
@@ -528,7 +537,7 @@ async function sendFile(input){
     if(chatId&&!chatId.startsWith('local')){
       try{const fd=new FormData();fd.append('file',file);await fetch(API_URL+'/upload/'+chatId,{method:'POST',body:fd});}catch(e){}
     }
-    addMsg('bot','Файл получен! Нажмите «Оператор» для связи с нами напрямую.');
+    addMsg('bot','Файл получен! Нажмите «Оператор» для передачи файла менеджеру.');
   };
   reader.readAsDataURL(file);input.value='';
 }
