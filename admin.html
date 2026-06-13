@@ -5,7 +5,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Админ — Студия Вектор</title>
 <style>
-:root{--black:#0a0a0a;--dark:#111318;--card:#16191f;--accent:#00e5ff;--white:#f0f4f8;--muted:#8a9ab0;--border:rgba(0,229,255,0.12);--red:#ff4444}
+:root{--black:#0a0a0a;--dark:#111318;--card:#16191f;--accent:#00e5ff;--white:#f0f4f8;--muted:#8a9ab0;--border:rgba(0,229,255,0.12)}
 *{margin:0;padding:0;box-sizing:border-box}
 body{font-family:'Segoe UI',sans-serif;background:var(--black);color:var(--white);min-height:100vh}
 .login{display:flex;align-items:center;justify-content:center;min-height:100vh;padding:20px}
@@ -16,70 +16,63 @@ body{font-family:'Segoe UI',sans-serif;background:var(--black);color:var(--white
 .login-box input:focus{border-color:var(--accent)}
 .login-box button{width:100%;background:var(--accent);color:var(--black);border:none;border-radius:8px;padding:13px;font-size:15px;font-weight:700;cursor:pointer}
 .login-box button:hover{background:#fff}
-.login-error{color:var(--red);font-size:13px;margin-top:12px;display:none}
+.login-error{color:#ff4444;font-size:13px;margin-top:12px;display:none}
+
 .app{display:none;height:100vh;flex-direction:column}
 .app.visible{display:flex}
-header{background:var(--dark);border-bottom:1px solid var(--border);padding:12px 16px;display:flex;align-items:center;justify-content:space-between;flex-shrink:0}
-header h1{font-size:16px;color:var(--accent);letter-spacing:2px}
-.header-right{display:flex;align-items:center;gap:8px}
-.refresh-btn{background:none;border:1px solid var(--border);color:var(--muted);padding:6px 12px;border-radius:6px;font-size:12px;cursor:pointer}
+
+header{background:var(--dark);border-bottom:1px solid var(--border);padding:14px 20px;display:flex;align-items:center;justify-content:space-between;flex-shrink:0}
+header h1{font-size:18px;color:var(--accent);letter-spacing:2px}
+.header-right{display:flex;align-items:center;gap:12px}
+.refresh-btn{background:none;border:1px solid var(--border);color:var(--muted);padding:6px 14px;border-radius:6px;font-size:13px;cursor:pointer}
 .refresh-btn:hover{border-color:var(--accent);color:var(--accent)}
-.logout-btn{background:none;border:1px solid rgba(255,68,68,0.3);color:#ff6666;padding:6px 12px;border-radius:6px;font-size:12px;cursor:pointer}
-.logout-btn:hover{border-color:var(--red);color:var(--red)}
+.logout-btn{background:none;border:1px solid rgba(255,68,68,0.3);color:#ff6666;padding:6px 14px;border-radius:6px;font-size:13px;cursor:pointer}
+.logout-btn:hover{border-color:#ff4444;color:#ff4444}
+
 .main{display:flex;flex:1;overflow:hidden}
-.sidebar{width:280px;background:var(--dark);border-right:1px solid var(--border);display:flex;flex-direction:column;flex-shrink:0}
-.sidebar-header{padding:14px 16px;border-bottom:1px solid var(--border);flex-shrink:0}
-.sidebar-title{font-size:11px;color:var(--muted);letter-spacing:1px;text-transform:uppercase;margin-bottom:6px}
-.chat-count{font-size:28px;font-weight:700;color:var(--accent)}
+
+.sidebar{width:300px;background:var(--dark);border-right:1px solid var(--border);display:flex;flex-direction:column;flex-shrink:0}
+.sidebar-header{padding:16px;border-bottom:1px solid var(--border);flex-shrink:0}
+.sidebar-title{font-size:13px;color:var(--muted);letter-spacing:1px;text-transform:uppercase;margin-bottom:8px}
+.chat-count{font-size:22px;font-weight:700;color:var(--accent)}
 .chats-list{flex:1;overflow-y:auto;padding:8px}
-.chat-item{padding:10px 12px;border-radius:8px;cursor:pointer;transition:all 0.2s;border:1px solid transparent;margin-bottom:4px;position:relative}
+.chat-item{padding:12px 14px;border-radius:8px;cursor:pointer;transition:all 0.2s;border:1px solid transparent;margin-bottom:4px}
 .chat-item:hover{background:var(--card);border-color:var(--border)}
 .chat-item.active{background:var(--card);border-color:var(--accent)}
-.chat-item-id{font-size:11px;color:var(--muted);font-family:monospace;margin-bottom:3px}
-.chat-item-msg{font-size:12px;color:var(--white);line-height:1.4;overflow:hidden;display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical}
-.chat-item-time{font-size:11px;color:var(--muted);margin-top:3px}
+.chat-item-id{font-size:11px;color:var(--muted);font-family:monospace;margin-bottom:4px}
+.chat-item-msg{font-size:13px;color:var(--white);line-height:1.4;overflow:hidden;display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical}
+.chat-item-time{font-size:11px;color:var(--muted);margin-top:4px}
 .chat-item-empty{font-size:12px;color:var(--muted);font-style:italic}
-.delete-btn{position:absolute;top:8px;right:8px;background:none;border:none;color:rgba(255,68,68,0.4);font-size:16px;cursor:pointer;padding:2px 4px;border-radius:4px;transition:all 0.2s;display:none}
-.chat-item:hover .delete-btn{display:block}
-.delete-btn:hover{color:var(--red);background:rgba(255,68,68,0.1)}
+
 .chat-panel{flex:1;display:flex;flex-direction:column;overflow:hidden}
 .chat-panel-empty{flex:1;display:flex;align-items:center;justify-content:center;flex-direction:column;gap:12px;color:var(--muted)}
 .chat-panel-empty .icon{font-size:48px;opacity:0.3}
-.chat-panel-header{padding:12px 16px;border-bottom:1px solid var(--border);background:var(--dark);flex-shrink:0;display:flex;align-items:center;justify-content:space-between}
-.chat-panel-header-left h3{font-size:14px;font-weight:600;margin-bottom:2px}
-.chat-panel-header-left p{font-size:11px;color:var(--muted);font-family:monospace}
-.delete-chat-btn{background:none;border:1px solid rgba(255,68,68,0.3);color:#ff6666;padding:6px 12px;border-radius:6px;font-size:12px;cursor:pointer}
-.delete-chat-btn:hover{border-color:var(--red);color:var(--red);background:rgba(255,68,68,0.1)}
-.messages-list{flex:1;overflow-y:auto;padding:14px;display:flex;flex-direction:column;gap:10px}
+.chat-panel-header{padding:14px 20px;border-bottom:1px solid var(--border);background:var(--dark);flex-shrink:0}
+.chat-panel-header h3{font-size:14px;font-weight:600;margin-bottom:2px}
+.chat-panel-header p{font-size:12px;color:var(--muted);font-family:monospace}
+.messages-list{flex:1;overflow-y:auto;padding:16px;display:flex;flex-direction:column;gap:10px}
 .msg-row{display:flex;flex-direction:column;gap:2px}
 .msg-row.user{align-items:flex-end}
 .msg-row.assistant{align-items:flex-start}
-.msg-bubble{max-width:75%;padding:9px 13px;border-radius:12px;font-size:13px;line-height:1.5;word-break:break-word}
+.msg-bubble{max-width:75%;padding:10px 14px;border-radius:12px;font-size:14px;line-height:1.5;word-break:break-word}
 .msg-bubble.user{background:var(--accent);color:var(--black);border-bottom-right-radius:3px;font-weight:500}
 .msg-bubble.assistant{background:var(--card);color:var(--white);border-bottom-left-radius:3px;border:1px solid var(--border)}
-.msg-bubble img{max-width:200px;border-radius:8px;display:block;margin-top:4px;cursor:pointer}
-.msg-time{font-size:10px;color:var(--muted);padding:0 4px}
-.msg-role{font-size:10px;color:var(--muted);padding:0 4px;text-transform:uppercase;letter-spacing:0.5px}
+.msg-time{font-size:11px;color:var(--muted);padding:0 4px}
+.msg-role{font-size:11px;color:var(--muted);padding:0 4px;text-transform:uppercase;letter-spacing:0.5px}
+
 .loading{text-align:center;padding:40px;color:var(--muted);font-size:14px}
 .error-msg{text-align:center;padding:40px;color:#ff6666;font-size:14px}
-.confirm-overlay{display:none;position:fixed;inset:0;background:rgba(0,0,0,0.8);z-index:1000;align-items:center;justify-content:center;padding:20px}
-.confirm-overlay.active{display:flex}
-.confirm-box{background:var(--dark);border:1px solid var(--border);border-radius:12px;padding:28px 24px;max-width:320px;width:100%;text-align:center}
-.confirm-box h3{font-size:16px;margin-bottom:10px}
-.confirm-box p{font-size:13px;color:var(--muted);margin-bottom:24px;line-height:1.5}
-.confirm-btns{display:flex;gap:10px}
-.confirm-yes{flex:1;background:var(--red);color:#fff;border:none;border-radius:8px;padding:11px;font-size:14px;font-weight:700;cursor:pointer}
-.confirm-no{flex:1;background:none;border:1px solid var(--border);color:var(--white);border-radius:8px;padding:11px;font-size:14px;cursor:pointer}
+
 @media(max-width:600px){
-.sidebar{width:100%;height:220px;border-right:none;border-bottom:1px solid var(--border)}
+.sidebar{width:100%;height:200px;border-right:none;border-bottom:1px solid var(--border)}
 .main{flex-direction:column}
 .msg-bubble{max-width:88%}
-.msg-bubble img{max-width:160px}
 }
 </style>
 </head>
 <body>
 
+<!-- LOGIN -->
 <div class="login" id="loginScreen">
   <div class="login-box">
     <h1>ВЕКТОР</h1>
@@ -90,6 +83,7 @@ header h1{font-size:16px;color:var(--accent);letter-spacing:2px}
   </div>
 </div>
 
+<!-- APP -->
 <div class="app" id="appScreen">
   <header>
     <h1>АДМИН ПАНЕЛЬ</h1>
@@ -117,29 +111,16 @@ header h1{font-size:16px;color:var(--accent);letter-spacing:2px}
   </div>
 </div>
 
-<div class="confirm-overlay" id="confirmOverlay">
-  <div class="confirm-box">
-    <h3>Удалить чат?</h3>
-    <p>Переписка будет удалена из базы данных. Это действие нельзя отменить.</p>
-    <div class="confirm-btns">
-      <button class="confirm-yes" onclick="confirmDelete()">Удалить</button>
-      <button class="confirm-no" onclick="cancelDelete()">Отмена</button>
-    </div>
-  </div>
-</div>
-
 <script>
 const API = 'https://vector-chat-api.onrender.com';
 let password = '';
 let currentChatId = null;
 let allChats = [];
-let chatToDelete = null;
 
 function doLogin() {
   const pwd = document.getElementById('passwordInput').value.trim();
   if (!pwd) return;
   password = pwd;
-  document.getElementById('loginError').style.display = 'none';
   loadChats();
 }
 
@@ -148,7 +129,6 @@ async function loadChats() {
     const r = await fetch(`${API}/admin/chats?password=${encodeURIComponent(password)}`);
     if (r.status === 403) {
       document.getElementById('loginError').style.display = 'block';
-      document.getElementById('loginError').textContent = 'Неверный пароль';
       return;
     }
     const data = await r.json();
@@ -171,9 +151,8 @@ function renderChats(chats) {
   }
   list.innerHTML = chats.map(c => `
     <div class="chat-item ${c.id === currentChatId ? 'active' : ''}" onclick="openChat('${c.id}')">
-      <button class="delete-btn" onclick="event.stopPropagation();askDelete('${c.id}')">🗑</button>
       <div class="chat-item-id">${c.id.substring(0,8)}...</div>
-      <div class="${c.last_msg ? 'chat-item-msg' : 'chat-item-empty'}">${c.last_msg ? escapeHtml(c.last_msg.substring(0,80)) : 'Нет сообщений'}</div>
+      <div class="${c.last_msg ? 'chat-item-msg' : 'chat-item-empty'}">${c.last_msg || 'Нет сообщений'}</div>
       <div class="chat-item-time">${formatTime(c.created_at)}</div>
     </div>
   `).join('');
@@ -187,19 +166,17 @@ async function openChat(chatId) {
   try {
     const r = await fetch(`${API}/admin/messages/${chatId}?password=${encodeURIComponent(password)}`);
     const msgs = await r.json();
+    const chat = allChats.find(c => c.id === chatId);
     panel.innerHTML = `
       <div class="chat-panel-header">
-        <div class="chat-panel-header-left">
-          <h3>Чат клиента</h3>
-          <p>${chatId}</p>
-        </div>
-        <button class="delete-chat-btn" onclick="askDelete('${chatId}')">🗑 Удалить чат</button>
+        <h3>Чат клиента</h3>
+        <p>${chatId}</p>
       </div>
       <div class="messages-list" id="msgList">
         ${msgs.length ? msgs.map(m => `
           <div class="msg-row ${m.role}">
             <div class="msg-role">${m.role === 'user' ? '👤 Клиент' : '🤖 Ассистент'}</div>
-            <div class="msg-bubble ${m.role}">${renderMessage(m)}</div>
+            <div class="msg-bubble ${m.role}">${escapeHtml(m.content || '')}</div>
             <div class="msg-time">${formatTime(m.time)}</div>
           </div>
         `).join('') : '<div class="loading">Сообщений нет</div>'}
@@ -212,61 +189,16 @@ async function openChat(chatId) {
   }
 }
 
-function renderMessage(m) {
-  let content = '';
-  if (m.file_url && m.file_url.length > 10) {
-    if (m.file_url.startsWith('data:image')) {
-      content += `<img src="${m.file_url}" onclick="window.open(this.src)" title="Нажми для открытия">`;
-    } else {
-      content += `<a href="${m.file_url}" download style="color:var(--accent)">📎 Скачать файл</a>`;
-    }
-  }
-  if (m.content && m.content.trim()) {
-    content += (content ? '<br>' : '') + escapeHtml(m.content);
-  }
-  return content || '<i style="color:var(--muted)">пусто</i>';
-}
-
 function escapeHtml(text) {
-  return String(text).replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;').replace(/\n/g,'<br>');
+  return text.replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;').replace(/\n/g,'<br>');
 }
 
 function formatTime(str) {
   if (!str) return '';
   try {
     const d = new Date(str);
-    return d.toLocaleString('ru-RU',{day:'2-digit',month:'2-digit',hour:'2-digit',minute:'2-digit'});
+    return d.toLocaleString('ru-RU', {day:'2-digit',month:'2-digit',hour:'2-digit',minute:'2-digit'});
   } catch(e) { return str; }
-}
-
-function askDelete(chatId) {
-  chatToDelete = chatId;
-  document.getElementById('confirmOverlay').classList.add('active');
-}
-
-function cancelDelete() {
-  chatToDelete = null;
-  document.getElementById('confirmOverlay').classList.remove('active');
-}
-
-async function confirmDelete() {
-  if (!chatToDelete) return;
-  document.getElementById('confirmOverlay').classList.remove('active');
-  try {
-    await fetch(`${API}/admin/chat/${chatToDelete}?password=${encodeURIComponent(password)}`, {method:'DELETE'});
-    if (currentChatId === chatToDelete) {
-      currentChatId = null;
-      document.getElementById('chatPanel').innerHTML = `
-        <div class="chat-panel-empty">
-          <div class="icon">💬</div>
-          <div>Выберите чат слева</div>
-        </div>`;
-    }
-    chatToDelete = null;
-    loadChats();
-  } catch(e) {
-    alert('Ошибка удаления');
-  }
 }
 
 function logout() {
@@ -275,8 +207,10 @@ function logout() {
   document.getElementById('appScreen').classList.remove('visible');
   document.getElementById('loginScreen').style.display = 'flex';
   document.getElementById('passwordInput').value = '';
+  document.getElementById('loginError').style.display = 'none';
 }
 
+// Auto-refresh every 30 seconds
 setInterval(() => { if (password) loadChats(); }, 30000);
 </script>
 </body>
